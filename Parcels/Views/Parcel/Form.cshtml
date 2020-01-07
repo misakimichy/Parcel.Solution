@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title>Create a Custom Postcard!</title>
+        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+    </head>
+    <body>
+        <form action="/parcels" method="post">
+            <div class="form-group">
+                <label for="width">Enter width:</label>
+                <input id="width" name="width" type="int">
+            </div>
+            <div class="form-group">
+                <label for="length">Enter length:</label>
+                <input id="length" name="length" type="int">
+            </div>
+            <div class="form-group">
+                <label for="height">Enter height:</label>
+                <input id="height" name="height" type="int">
+            </div>
+            <div class="form-group">
+                <label for="weight">Enter weight of your package:</label>
+                <input id="weight" name="weight" type="int">
+            </div>
+            <button class="btn btn-info" type="submit">Calculate the cost.</button>
+        </form>
+    </body>
+</html>

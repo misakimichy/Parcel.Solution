@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System;
 
 namespace ShippingParcel.Models
 {
@@ -11,6 +12,10 @@ namespace ShippingParcel.Models
         private double price;
 
         private static List<Parcel> myParcel = new List<Parcel> {};
+        public Parcel ()
+        {
+
+        }
         public Parcel (double width, double length, double height, double weight)
         {
             this.width = width;
@@ -21,7 +26,7 @@ namespace ShippingParcel.Models
             myParcel.Add(this);
         }
 
-        public static List<Parcel> GetAllParcesl()
+        public static List<Parcel> GetAllParcels()
         {
             return myParcel;
         }
@@ -106,9 +111,19 @@ namespace ShippingParcel.Models
             return this.price;
         }
 
+        public double TotalPrice()
+        {
+            double total = 0;
+            for (int index = 0; index < myParcel.Count; index++)
+            {
+                total += myParcel[index].CostToShip();
+            }
+            return total;
+        }
+
         public string ToString()
         {
-            string output = $"Your package dimension: ${this.width} x ${this.length} x ${this.height} = ${Volumne()} \nYour shipping cost: ${CostToShip()}";
+            string output = $"Your package dimension: {this.width} x {this.length} x {this.height} =  {Volume()} ㎤ ";
             return output;
         }
     }
