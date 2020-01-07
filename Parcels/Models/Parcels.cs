@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace ShippingParcel.Models
 {
     public class Parcel
@@ -8,6 +10,7 @@ namespace ShippingParcel.Models
         private double weight;
         private double price;
 
+        private static List<Parcel> myParcel = new List<Parcel> {};
         public Parcel (double width, double length, double height, double weight)
         {
             this.width = width;
@@ -15,8 +18,18 @@ namespace ShippingParcel.Models
             this.height = height;
             this.weight = weight;
             this.price = 0;
+            myParcel.Add(this);
         }
 
+        public static List<Parcel> GetAllParcesl()
+        {
+            return myParcel;
+        }
+
+        public static void RemoveParcels()
+        {
+            myParcel.Clear();
+        }
         public double GetWidth()
         {
             return this.width;
@@ -93,9 +106,10 @@ namespace ShippingParcel.Models
             return this.price;
         }
 
-        // public string ToString()
-        // {
-
-        // }
+        public string ToString()
+        {
+            string output = $"Your package dimension: ${this.width} x ${this.length} x ${this.height} = ${Volumne()} \nYour shipping cost: ${CostToShip()}";
+            return output;
+        }
     }
 }
